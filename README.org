@@ -1,10 +1,13 @@
 #+TITLE: Sublime like word navigation for Emacs
 
-Sublime Text like word navigation (=Alt+←=, =Alt+→=) for Emacs.
-Uses subword-mode.
+Sublime Text like word navigation (=Alt+←=, =Alt+→=) for Emacs. Emacs
+default word navigation is to skip newline entirely. I like the
+cursor to stop at newline like Sublime Text.
 
-* Installation
-Copy =sublime-key.el= to =.emacs.d= folder. Load and update subword
+Uses in-built subword-mode.
+
+** Installation
+Copy =sublime-key.el= to =.emacs.d= folder. Load =sublime-key=. Update subword
 variables to use new functions.
 
 Ex:
@@ -27,12 +30,12 @@ Ex:
 You can use =sublime-key-backward-kill= and =sublime-key-forward-kill= to
 have similar behavior for kill-word keybindings.
 
-I bind =sublime-key-backward-kill= it to M-<backspace>
+I bind =sublime-key-backward-kill= to =M-<backspace>=
 #+BEGIN_SRC emacs-lisp
 (global-set-key (kbd "M-<backspace>") 'sublime-key-backward-kill)
 #+END_SRC
 
-* License
+** License
 #+BEGIN_QUOTE
 Copyright (C) 2018  Akash Hiremath
 
