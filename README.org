@@ -1,0 +1,51 @@
+#+TITLE: Sublime like word navigation for Emacs
+
+Sublime Text like word navigation (=Alt+←=, =Alt+→=) for Emacs.
+Uses subword-mode.
+
+* Installation
+Copy =sublime-key.el= to =.emacs.d= folder. Load and update subword
+variables to use new functions.
+
+Ex:
+#+BEGIN_SRC emacs-lisp
+(load "~/.emacs.d/lisp/sublime-key.el")
+(require 'sublime-key)
+
+(setq subword-forward-regexp 'sublime-key-forward
+      subword-backward-regexp 'sublime-key-backward
+      subword-forward-function 'sublime-key-forward
+      subword-backward-function 'sublime-key-backward)
+
+(global-set-key (kbd "<M-right>") 'subword-forward)
+(global-set-key (kbd "<M-left>") 'subword-backward)
+
+(subword-mode 1)
+#+END_SRC
+
+** Bonus
+You can use =sublime-key-backward-kill= and =sublime-key-forward-kill= to
+have similar behavior for kill-word keybindings.
+
+I bind =sublime-key-backward-kill= it to M-<backspace>
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-<backspace>") 'sublime-key-backward-kill)
+#+END_SRC
+
+* License
+#+BEGIN_QUOTE
+Copyright (C) 2018  Akash Hiremath
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#+END_QUOTE>
