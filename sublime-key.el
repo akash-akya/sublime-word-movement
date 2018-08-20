@@ -30,9 +30,9 @@
 
 ;; + variables
 
-(defvar sublime-forward-re ".\n\\|\n.\\|\n\n\\|[ \t]*[^a-zA-Z0-9_ \t\n>})]*[a-zA-Z0-9_]+[^a-zA-Z0-9_]\\|[ \t]*[^a-zA-Z0-9_ \t\n>})]*[a-zA-Z0-9_]*[>})].\\|[ \t]*[^a-zA-Z0-9_ \t\n>})]+[^a-zA-Z0-9_]")
+(defvar sublime-forward-re ".\n\\|\n.\\|\n\n\\|[ \t]*[^a-zA-Z0-9 \t\n>})]*[a-zA-Z0-9]+[^a-zA-Z0-9]\\|[ \t]*[^a-zA-Z0-9 \t\n>})]*[a-zA-Z0-9]*[>})].\\|[ \t]*[^a-zA-Z0-9 \t\n>})]+[^a-zA-Z0-9]")
 
-(defvar sublime-backword-re "\n.\\|.\n\\|\n\n\\|[([{].+\\|.[<([{]\\|[^a-zA-Z0-9_][a-zA-Z0-9_]+[^a-zA-Z0-9_ \t\n<{(]*[ \t]*\\|[ \t][a-zA-Z0-9_]*[^a-zA-Z0-9_ \t\n<{(]+[ \t]*\\|[[:space:]][^[[:space:]]]+")
+(defvar sublime-backword-re "\n.\\|.\n\\|\n\n\\|[([{].+\\|.[<([{]\\|[^a-zA-Z0-9][a-zA-Z0-9]+[^a-zA-Z0-9 \t\n<{(]*[ \t]*\\|[ \t][a-zA-Z0-9]*[^a-zA-Z0-9 \t\n<{(]+[ \t]*\\|[[:space:]][^[[:space:]]]+")
 
 ;;;###autoload
 (defun sublime-key-forward ()
