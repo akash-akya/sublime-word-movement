@@ -32,23 +32,25 @@
 
 (defvar sublime-forward-re ".\n\\|\n.\\|\n\n\\|[ \t]*[^a-zA-Z0-9 \t\n>})]*[a-zA-Z0-9]+[^a-zA-Z0-9]\\|[ \t]*[^a-zA-Z0-9 \t\n>})]*[a-zA-Z0-9]*[>})].\\|[ \t]*[^a-zA-Z0-9 \t\n>})]+[^a-zA-Z0-9]")
 
-(defvar sublime-backword-re "\n.\\|.\n\\|\n\n\\|[([{].+\\|.[<([{]\\|[^a-zA-Z0-9][a-zA-Z0-9]+[^a-zA-Z0-9 \t\n<{(]*[ \t]*\\|[ \t][a-zA-Z0-9]*[^a-zA-Z0-9 \t\n<{(]+[ \t]*\\|[[:space:]][^[[:space:]]]+")
+(defvar sublime-backword-re "[\n.].\\|.\n\\|\n\n\\|[([{].+\\|.[<([{]\\|[^a-zA-Z0-9][a-zA-Z0-9]+[^a-zA-Z0-9 \t\n<{(]*[ \t]*\\|[ \t][a-zA-Z0-9]*[^a-zA-Z0-9 \t\n<{(]+[ \t]*\\|[[:space:]][^[[:space:]]]+")
 
 ;;;###autoload
 (defun sublime-key-forward ()
   "Subword movement forward."
-       (interactive)
-       (let ((case-fold-search nil))
-         (re-search-forward sublime-forward-re nil t))
-       (goto-char (- (match-end 0) 1)))
+  (interactive)
+  (let ((case-fold-search nil))
+    (if (re-search-forward sublime-forward-re nil t)
+        (goto-char (- (match-end 0) 1))
+      (end-of-line))))
 
 ;;;###autoload
 (defun sublime-key-backward ()
   "Subword movement backward."
   (interactive)
+  (let ((case-fold-search nil))
     (if (re-search-backward sublime-backword-re nil t)
         (goto-char (1+ (match-beginning 0)))
-      (beginning-of-line)))
+      (beginning-of-line))))
 
 ;;;###autoload
 (defun sublime-key-forward-kill ()
