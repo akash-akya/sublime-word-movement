@@ -1,6 +1,6 @@
 #+TITLE: Sublime like word navigation for Emacs
 
-Sublime Text like word navigation (=Alt+←=, =Alt+→=) for Emacs. Emacs
+Sublime Text like word navigation (=Alt-Left=, =Alt-Right=) for Emacs. Emacs
 default word navigation is to skip newline entirely. I like the
 cursor to stop at newline like Sublime Text.
 
