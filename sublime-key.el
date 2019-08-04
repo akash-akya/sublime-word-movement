@@ -40,8 +40,10 @@
   (interactive)
   (let ((case-fold-search nil))
     (if (re-search-forward sublime-forward-re nil t)
-        (goto-char (- (match-end 0) 1))
-      (end-of-line))))
+        (goto-char (1- (match-end 0)))
+      (progn
+        (end-of-line)
+        (point))))) ;; must return the current position
 
 ;;;###autoload
 (defun sublime-key-backward ()
@@ -50,7 +52,9 @@
   (let ((case-fold-search nil))
     (if (re-search-backward sublime-backword-re nil t)
         (goto-char (1+ (match-beginning 0)))
-      (beginning-of-line))))
+      (progn
+        (beginning-of-line)
+        (point))))) ;; must return the current position
 
 ;;;###autoload
 (defun sublime-key-forward-kill ()
